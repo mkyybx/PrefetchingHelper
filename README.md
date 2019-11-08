@@ -20,9 +20,9 @@ Your task will be to design and implement the helper thread located in the helpe
 
 ## Deliverables
 
-You only need to turn your modified "helper.c" file and please put your name and student ID # as a comment in the first two lines of your code. 
+You only need to turn your modified "helper.c" file and please put your name and student ID # as a comment in the first two lines of your code through iLearn. 
 
 ## Due 
 
-11:59pm, 12/2/2019. No extension.
+11:59pm, 12/2/2019. No extension. No late submission accepted.
 
