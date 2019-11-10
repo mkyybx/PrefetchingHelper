@@ -16,6 +16,8 @@ Copyright (c) 1998,1999   ZIB Berlin   All Rights Reserved
 
 
 #include "mcfutil.h"
+#include "helper.h"
+#include <pthread.h>
 
 
 
@@ -70,10 +72,12 @@ long refresh_potential( net )
     node_t *stop = net->stop_nodes;
     node_t *node, *tmp;
     node_t *root = net->nodes;
+    pthread_t thread;
     long checksum = 0;
     
     for( node = root, stop = net->stop_nodes; node < (node_t*)stop; node++ )
         node->mark = 0;
+    pthread_create(&thread, NULL, helper_thread, root);
     
     root->potential = (cost_t) -MAX_ART_COST;
     tmp = node = root->child;
@@ -107,6 +111,7 @@ long refresh_potential( net )
                 node = node->pred;
         }
     }
+    pthread_cancel(thread);
     
     return checksum;
 }
