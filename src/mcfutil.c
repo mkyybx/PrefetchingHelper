@@ -95,6 +95,7 @@ long refresh_potential( net )
 
             tmp = node;
             node = node->child;
+            helper_thread_sync();
         }
         
         node = tmp;
@@ -109,6 +110,7 @@ long refresh_potential( net )
             }
             else
                 node = node->pred;
+            helper_thread_sync();
         }
     }
     pthread_cancel(thread);
